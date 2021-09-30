@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { getPokemons } from '../../services/getPokemons';
 import { ListPokemons } from './ListPokemons';
 
@@ -13,13 +13,16 @@ const Pokemons = () => {
 
 export const LazyPokemons = () => {
   const [show, setShow] = useState(false);
+  const elementRef = useRef();
 
   useEffect(() => {
-    const onChange = (entries) => {
+    const onChange = (entries, observer) => {
       // console.log(entries);
       const element = entries[0];
+      console.log(element.isIntersecting)
       if(element.isIntersecting) {
-        setShow(true)
+        setShow(true);
+        observer.disconnect();
       }
     }
 
@@ -27,10 +30,12 @@ export const LazyPokemons = () => {
       rootMargin: '100px'
     });
 
-    observer.observe(document.getElementById('LazyPokes'))
-  }, []);
+    observer.observe(elementRef.current);
 
-  return <div id="LazyPokes">
+    return () => observer.disconnect(); // Para cuando se componente se deje de utilizar se limpie y no se ejecute el setShow
+  });
+
+  return <div ref={elementRef}>
     { show ? <Pokemons /> : null }
   </div>;
 
