@@ -1,22 +1,21 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useNearScreen } from '../../hooks/useNearScreen';
-import { getPokemons } from '../../services/getPokemons';
-import { ListPokemons } from './ListPokemons';
 
-import './Pokemons.css'
+// import { Pokemons } from './PokemonsComponent';
 
-const Pokemons = () => {
-  const pokemons = getPokemons();
-  return (
-    <ListPokemons pokemons={pokemons}/>
-  )
-}
+import './Pokemons.css';
+
+const Pokemons = React.lazy(() => import('./PokemonsComponent'));
+
 
 export const LazyPokemons = () => {
-  const {isNearScreen, fromRef} = useNearScreen({distance: '200px'});
+  const {isNearScreen, fromRef} = useNearScreen({distance: '50px'});
 
-  return <div ref={fromRef}>
-    { isNearScreen ? <Pokemons /> : null }
-  </div>;
-
+  return (
+    <div ref={fromRef}>
+      <Suspense fallback={<div>Loading...</div>}>
+        { isNearScreen ? <Pokemons /> : null }
+      </Suspense>
+    </div>
+  )
 }
