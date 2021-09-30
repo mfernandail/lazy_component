@@ -1,0 +1,38 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s;
+  padding: 10px 100px;
+
+  height: 60px;
+
+  background-color: #000;
+}
+
+.nav__logo {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2em;
+
+}
+
+.nav__links {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__links-link {
+  position: relative; 
+  margin: 0 15px;
+  text-decoration: none;
+  color:#fff;
+
+}

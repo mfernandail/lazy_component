@@ -1,0 +1,21 @@
+.details {
+  height: 100vh;
+
+  background-image: url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details__title {
+  background-color: rgba(36, 169, 187, 0.63);
+  color: #000;
+  padding: 20px 40px;
+  font-size: 3em;
+  border-radius: 5px;
+}

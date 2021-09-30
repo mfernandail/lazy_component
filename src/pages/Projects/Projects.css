@@ -1,0 +1,27 @@
+.projects {
+  height: 50vh;
+  /* width: 80%;
+  margin: 0 auto;
+  margin-top: 20px; */
+  background-image: 
+    linear-gradient(#0000005d, rgba(202, 37, 166, 0.486)),
+    url('https://media.istockphoto.com/photos/background-of-galaxy-and-stars-picture-id1035676256?b=1&k=20&m=1035676256&s=170667a&w=0&h=NOtiiFfDhhUhZgQ4wZmHPXxHvt3RFVD-lTmnWCeyIG4=');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding: 0.1px;
+  display: flex;
+  align-items: center;
+}
+
+.projects__container {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.projects__title {
+  margin-bottom: 20px;
+  font-size: 2.5em;
+}
